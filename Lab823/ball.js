@@ -3,13 +3,13 @@
 //github test
 class Ball{
   constructor(x,y,dx,dy,sizeX,sizeY){
-    this.x = x;
-    this.y = y;
-    this.dx = dx;
-    this.dy = dy;
+    this.loc = createVector(x, y);
+    this.vel = createVector(dx, dy);
+    this.acc = createVector(0,0);
     this.clr = color(random(255), random(255), random(255));
     this.sizeX = sizeX;
     this.sizeY = sizeY;
+
   }
   run(){
   this.checkEdges();
@@ -18,8 +18,8 @@ class Ball{
   this.render();
 }
   checkEdges(){
-    if(this.x<this.sizeX/2){
-      this.dx=-1*this.dx;
+    if(this.loc.x<this.sizeX/2){
+      this.vel.x=-1*this.dx;
     }//left side of screen
     if(this.x>width-this.sizeX/2){
       this.dx = -1*this.dx;
