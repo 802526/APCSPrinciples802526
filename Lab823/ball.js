@@ -19,16 +19,16 @@ class Ball{
 }
   checkEdges(){
     if(this.loc.x<this.sizeX/2){
-      this.vel.x=-1*this.dx;
+      this.vel.x=-1*this.vel.x;
     }//left side of screen
-    if(this.x>width-this.sizeX/2){
-      this.dx = -1*this.dx;
+    if(this.loc.x>width-this.sizeX/2){
+      this.vel.x = -1*this.vel.x;
     }//right side of screen
-    if(this.y<this.sizeY/2){
-      this.dy=-1*this.dy;
+    if(this.loc.y<this.sizeY/2){
+      this.vel.y=-1*this.vel.y;
     }//top of the screen
-    if(this.y>height-this.sizeY/2){
-      this.dy=-this.dy;
+    if(this.loc.y>height-this.sizeY/2){
+      this.vel.y=-this.vel.y;
     }
   }
   // sizecontrol(){
@@ -37,12 +37,12 @@ class Ball{
   //   }
   // }
   update(){
-      this.x=this.x+this.dx;
-      this.y=this.y+this.dy;
+      this.loc.x=this.loc.x+this.vel.x;
+      this.loc.y=this.loc.y+this.vel.dy;
       // this.sizeX=this.sizeX+1
     }
   render(){
     fill(this.clr);
-    ellipse(this.x, this.y, this.sizeX, this.sizeY)
+    ellipse(this.loc.x, this.loc.y, this.sizeX, this.sizeY)
   }
 }//end ball class

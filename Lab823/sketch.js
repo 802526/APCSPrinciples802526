@@ -18,7 +18,8 @@ function draw() {
 }
 function loadBalls(n){
   for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(height), random (-8,8), random(-8,8), random(0,50), random(0,100))
+    balls[i] = new Ball (random (width), random(height), random (-8,8), random(-8,8), random(10,20), random(10,20))
+//this is the ball constructor from before
   }
 }
 function runBalls(){
