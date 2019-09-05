@@ -6,7 +6,7 @@ class Ball{
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.acc = createVector(0,0);
-    this.clr = color(random(150, 200), random(100, 255), random(100, 255));
+    this.clr = color(random(100, 200), random(100, 200), random(100, 255));
     this.sizeX = sizeX;
     this.sizeY = sizeY;
 
@@ -52,15 +52,15 @@ class Ball{
   attraction(){
 var distToMainBall;
 distToMainBall = this.loc.dist(mainBall.loc);
-if(distToMainBall < 90){
+if(distToMainBall < 200){
   this.acc = p5.Vector.sub(this.loc, mainBall.loc);
   this.acc.normalize();
-  this.acc.mult(1.5);
+  this.acc.mult(0.3);
 }
-else if(distToMainBall < 250){
+else if(distToMainBall < 150){
   this.acc = p5.Vector.sub( mainBall.loc, this.loc);
   this.acc.normalize();
-  this.acc.mult(0.2);
+  this.acc.mult(0.5);
 }
 else{
   this.acc = createVector(0,0);
