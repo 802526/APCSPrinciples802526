@@ -55,12 +55,12 @@ distToMainBall = this.loc.dist(mainBall.loc);
 if(distToMainBall < 90){
   this.acc = p5.Vector.sub(this.loc, mainBall.loc);
   this.acc.normalize();
-  this.acc.mult(1);
+  this.acc.mult(1.5);
 }
 else if(distToMainBall < 250){
   this.acc = p5.Vector.sub( mainBall.loc, this.loc);
   this.acc.normalize();
-  this.acc.mult(0.1);
+  this.acc.mult(0.2);
 }
 else{
   this.acc = createVector(0,0);
