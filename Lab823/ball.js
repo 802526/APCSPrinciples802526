@@ -49,6 +49,7 @@ class Ball{
     fill(this.clr);
     ellipse(this.loc.x, this.loc.y, this.sizeX, this.sizeY);
   }
+  
   attraction(){
 var distToMainBall;
 distToMainBall = this.loc.dist(mainBall.loc);
