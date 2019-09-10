@@ -32,6 +32,7 @@ function loadBalls(n){
 }
 function runBalls(){
   for(var i =0; i<balls.length; i++){
-    balls[i].run();
+    balls[i].run()
   }
+
 }
