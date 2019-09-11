@@ -1,7 +1,7 @@
 // Aug 21
 
 //github test
-class Ball{
+class Ball {
   constructor(x,y,dx,dy,sizeX,sizeY){
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
@@ -11,13 +11,14 @@ class Ball{
     this.sizeY = sizeY;
 
   }
+
   run(){
-  this.checkEdges();
-  // this.sizecontrol();
-  this.update();
-  this.render();
-  this.attraction();
-}
+    this.checkEdges();
+    // this.sizecontrol();
+    this.update();
+    this.render();
+  }
+
   checkEdges(){
     if(this.loc.x<this.sizeX/2){
       this.vel.x=-1*this.vel.x;
@@ -37,35 +38,37 @@ class Ball{
   //     this.sizeX=this.sizeX-250
   //   }
   // }
+
   update(){
-      // this.loc.x=this.loc.x+this.vel.x;
-      // this.loc.y=this.loc.y+this.vel.y;
-      //this moves the balls
-      // this.sizeX=this.sizeX+1
-      this.loc.add(this.vel);
-      this.vel.add(this.acc);
-    }
+    // this.loc.x=this.loc.x+this.vel.x;
+    // this.loc.y=this.loc.y+this.vel.y;
+    //this moves the balls
+    // this.sizeX=this.sizeX+1
+    this.loc.add(this.vel);
+    this.vel.add(this.acc);
+  }
+
   render(){
     fill(this.clr);
     ellipse(this.loc.x, this.loc.y, this.sizeX, this.sizeY);
   }
 
   attraction(){
-var distToMainBall;
-distToMainBall = this.loc.dist(mainBall.loc);
-if(distToMainBall < 200){
-  this.acc = p5.Vector.sub(this.loc, mainBall.loc);
-  this.acc.normalize();
-  this.acc.mult(0.3);
-}
-else if(distToMainBall < 150){
-  this.acc = p5.Vector.sub( mainBall.loc, this.loc);
-  this.acc.normalize();
-  this.acc.mult(0.5);
-}
-else{
-  this.acc = createVector(0,0);
-}
+    var distToMainBall;
+    distToMainBall = this.loc.dist(mainBall.loc);
+    if(distToMainBall < 200){
+      this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+      this.acc.normalize();
+      this.acc.mult(0.3);
+    }
+    else if(distToMainBall < 150){
+      this.acc = p5.Vector.sub( mainBall.loc, this.loc);
+      this.acc.normalize();
+      this.acc.mult(0.5);
+    }
+    else{
+      this.acc = createVector(0,0);
+    }
   }
 
 }//end ball class
