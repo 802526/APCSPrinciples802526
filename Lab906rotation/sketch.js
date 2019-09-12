@@ -3,7 +3,7 @@
 
 
 var ships = []
-var attractor, repeller, mainBall, paddle;
+var attractor, repeller, mainBall;
 
 function setup() {
   // put setup code here
@@ -26,7 +26,6 @@ function loadShips(n) {
   mainBall = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), 40, 40);
   // attractor = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), 80, 80);
   // repeller = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), 80, 80);
-  paddle = new Paddle
   for(var i = 0; i<n; i++){
     ships[i] = new Ship(random(width), random(height), random(-5, 5), random(-5, 5), random(0, TWO_PI))
     // ships[i] = new Ship(random(width), random(height), random (-4,4), random(-4,4), random(10,20), random(10,20));

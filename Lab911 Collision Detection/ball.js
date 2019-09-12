@@ -32,6 +32,15 @@ class Ball {
     if(this.loc.y>height-this.sizeY/2){
       this.vel.y=-this.vel.y;
     }
+  //   if(this.loc.x>paddle.loc.x &&
+  //     this.loc.x<paddle.loc.x +w &&
+  //     this.loc.y>paddle.loc.y &&
+  //     this.loc.y<paddle.loc.y + h){
+  //
+  //   return true;
+  // }else{
+  //   return false;
+  // }
   }
   // sizecontrol(){
   //   if(this.sizeX>300){
