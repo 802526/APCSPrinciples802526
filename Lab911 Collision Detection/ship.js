@@ -29,12 +29,12 @@ class Ship{
     if (this.loc.y < 0) {
       this.loc.y = height
     }
-  }
+}
 
   update(){
     this.loc.add(this.vel);
     this.vel.add(this.acc);
-    this.angle += TWO_PI * 0.01
+    this.angle = this.vel.heading() - PI/2;
   }
 
   render(){

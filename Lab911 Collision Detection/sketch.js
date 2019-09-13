@@ -9,14 +9,13 @@ function setup() {
   cnv.position((windowWidth-width)/2,30);
   background(0,0,0);//black background color
   loadShips(20);
-  loadPaddle(1);
+  loadPaddle();
 }
 
 function draw() {
   background(0, 0, 0, 50);
   // attractor.run()
   // repeller.run()
-  mainBall.run();
   runShips();
   runPaddle();
 }
@@ -32,10 +31,9 @@ function loadShips(n) {
     //function loadballs is called once at the beginning
     //the for loop basically creates each ball. starts at 0, changes by 1 up until 9 aka the n value.
   }
-function loadPaddle(n) {
-    for(var i = 0; i<n; i++){
-    paddle = new Paddle(random(width), random(height), 20, 10)
 }
+function loadPaddle() {
+    paddle = new Paddle(random(width), random(height), 100, 30)
 }
 
 function runShips() {
@@ -44,7 +42,5 @@ function runShips() {
   }
 }
 function runPaddle() {
-  for(var i = 0; i < paddle.length; i++){
-    paddle[i].run()
-  }
+  paddle.run();
 }

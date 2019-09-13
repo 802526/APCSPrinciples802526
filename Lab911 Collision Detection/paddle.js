@@ -1,6 +1,8 @@
 class Paddle {
   constructor(x, y, w, h){
-    this.lox = createVector(x, y, w, h);
+    this.loc = createVector(x, y);
+    this.w = w;
+    this.h = h;
   }
 
   run(){
@@ -25,12 +27,12 @@ class Paddle {
   }
 
   update(){
-//     var mouseLoc = createVector(mouseX, mouseY);
-// this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
+   var mouseLoc = createVector(mouseX, height-100);
+  this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
   }
 
   render(){
     fill(84, 46, 255)
-    rect(this.loc.x, this.loc.y, this.loc.w, this.loc.h)
+    rect(this.loc.x, this.loc.y, this.w, this.h)
   }
 }
