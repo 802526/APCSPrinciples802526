@@ -34,20 +34,30 @@ class Ship{
   update(){
     this.loc.add(this.vel);
     this.vel.add(this.acc);
-    this.angle += TWO_PI * 0.01
+    this.angle = this.vel.heading() - PI/2;
   }
 
   render(){
-    // Change CTM by adding to matrix stack
-    push()
-    // do some transformation stuff
-    translate(this.loc)
-    rotate(this.angle)
-    // Draw a triangle at the new origin
-    fill(this.clr);
-    triangle(-8, 0, 8, 0, 0, 15)
-    // Reset the CTM and remove from the matrix stack
-    pop()
+    // // Change CTM by adding to matrix stack
+    // push()
+    // // do some transformation stuff
+    // translate(this.loc)
+    // rotate(this.angle)
+    // // Draw a triangle at the new origin
+    // fill(this.clr);
+    // triangle(-8, 0, 8, 0, 0, 15)
+    // // Reset the CTM and remove from the matrix stack
+    // pop()
+    //
+push()//  Save coordinates
+   // move the origin to the center
+   // of the triangle
+translate(this.loc.x, this.loc.y);
+rotate(this.angle);
+fill(this.clr)
+triangle(-8, 0, 8, 0, 0, 15);
+      pop();// restore the origin to the
+         // upper left
   }
 
 
