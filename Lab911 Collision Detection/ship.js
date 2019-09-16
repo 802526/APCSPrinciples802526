@@ -29,6 +29,12 @@ class Ship{
     if (this.loc.y < 0) {
       this.loc.y = height
     }
+    if (this.loc.x > paddle.loc.x &&
+        this.loc.x < paddle.loc.x + paddle.w &&
+        this.loc.y > paddle.loc.y &&
+        this.loc.y < paddle.loc.y + paddle.h) {
+      this.vel.y = -1*this.vel.y
+    }
 }
 
   update(){

@@ -16,8 +16,9 @@ function draw() {
   background(0, 0, 0, 50);
   // attractor.run()
   // repeller.run()
-  runShips();
+
   runPaddle();
+  runShips();
 }
 
 function loadShips(n) {
