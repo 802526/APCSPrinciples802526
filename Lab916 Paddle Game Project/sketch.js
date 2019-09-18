@@ -19,11 +19,11 @@ function draw() {
   background(209, 209, 209, 50);
   // attractor.run()
   // repeller.run()
-    if (gameState ===1) {
+    if (gameState === 1) {
       startGame();
-    }else if (gameState ===2){
+    }else if (gameState === 2) {
       playGame();
-    }else if (gameState ===3) {
+    }else if (gameState === 3) {
       endGame();
     }
   }
@@ -36,8 +36,20 @@ function startGame() {
   textAlign(CENTER);
   textStyle(BOLD);
   text('Paddle Game', 400, 200);
-  rect(250, 500, 300, 100)
+  rect(200, 500, 400, 100)
+  fill(156, 255, 182)
+  rect(210, 510, 90, 70)
 
+}
+
+function mouseClicked() {
+  // use mouseX and mouseY and gamestate to determine if we clicked on a button.
+  if(mouseX>210 &&
+    mouseX<300 &&
+    mouseY>510 &&
+    mouseY<580) {
+      gameState = 2
+    }
 }
 
 function playGame() {
@@ -54,7 +66,7 @@ function endGame() {
 
 function  loadBalls(n) {
   for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(height), random (-4,4), random(-4,4), random(10,20), random(10,20));
+    balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
 }
 }
 function loadPaddle() {
