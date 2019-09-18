@@ -6,7 +6,7 @@ class Ball {
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.acc = createVector(0,.2);
-    this.clr = color(random(100, 200), random(100, 200), random(100, 255));
+    this.clr = color(random(164, 252), random(164, 252), random(164, 252));
     this.sizeX = sizeX;
     this.sizeY = sizeY;
 
@@ -14,6 +14,7 @@ class Ball {
 
   run(){
     this.checkEdges();
+    this.isColliding();
     this.update();
     this.render();
   }
@@ -31,13 +32,16 @@ class Ball {
     if(this.loc.y>height-this.sizeY/2){
       this.vel.y=-.99*this.vel.y;
     }
+}
+  isColliding() {
     if (this.loc.x > paddle.loc.x &&
         this.loc.x < paddle.loc.x + paddle.w &&
         this.loc.y > paddle.loc.y &&
         this.loc.y < paddle.loc.y + paddle.h) {
       this.vel.y = -.99*this.vel.y
     }
-}
+  }
+
   update() {
     this.loc.add(this.vel);
     this.vel.add(this.acc);
