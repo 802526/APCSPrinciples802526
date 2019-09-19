@@ -4,7 +4,8 @@
 //  The setup function function is called once when your program begins
 var balls = []
 var paddle;
-var gameState = 1
+var gameState = 1;
+var difficulty = 'E', 'M', 'H';
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -72,6 +73,7 @@ function mouseClicked() {
     mouseX<290 &&
     mouseY>510 &&
     mouseY<590) {
+      difficulty = 'E';
       gameState = 2
     }
     //codes for easy button
@@ -79,6 +81,7 @@ function mouseClicked() {
     mouseX<440 &&
     mouseY>510 &&
     mouseY<590) {
+      difficulty = 'M';
       gameState = 2
     }
     //codes for medium button
@@ -86,8 +89,10 @@ function mouseClicked() {
     mouseX< 590 &&
     mouseY> 510 &&
     mouseY< 590) {
+      difficulty = 'H'
       gameState = 2
     }
+    //codes for the hard button
 }
 
 function playGame() {
@@ -96,7 +101,14 @@ function playGame() {
 }
 
 function endGame() {
-
+  fill(255, 74, 74);
+  rect(50, 50, 700, 700);
+  fill(168, 12, 12);
+  textStyle(BOLD);
+  textAlign(CENTER);
+  text('YOU LOSE!', 50, 50)
+  fill(54, 54, 247);
+  rect(100, 500, 600, 200);
 }
 
 function  loadBalls(n) {
@@ -115,5 +127,5 @@ function runPaddle() {
 function runBalls() {
   for(var i =0; i<balls.length; i++){
     balls[i].run();
-}
+  }
 }
