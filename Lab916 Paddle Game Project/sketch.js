@@ -109,13 +109,30 @@ function endGame() {
   text('YOU LOSE!', 50, 50)
   fill(54, 54, 247);
   rect(100, 500, 600, 200);
+  //the blue button to play again
+  fill(168, 12, 12);
+  textStyle(BOLD);
+  text('Play Again', 125, 510);
 }
 
 function  loadBalls(n) {
-  for(var i = 0; i<n; i++){
+  if (difficulty = E) {
+    for(var i = 0; i<n; i++){
+      balls[i] = new Ball (random (width), random(height), 4, 4, 30, 30);
+    }
+  }
+  if (difficulty = M) {
+    for(var i = 0; i<n; i++){
     balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
+    }
+  }
+  if (difficulty = H) {
+    for(var i = 0; i<n; i++){
+    balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
+    }
+  }
 }
-}
+
 function loadPaddle() {
     paddle = new Paddle(random(width), random(height), 150, 15);
   }
