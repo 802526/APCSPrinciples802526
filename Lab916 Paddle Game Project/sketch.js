@@ -29,6 +29,7 @@ function draw() {
   }
 
 function startGame() {
+
   fill(90, 125, 242);
   rect(50, 50, 700, 700);
   //blue box
