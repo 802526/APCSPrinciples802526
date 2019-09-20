@@ -5,7 +5,7 @@
 var balls = []
 var paddle;
 var gameState = 1;
-var difficulty = 'E', 'M', 'H';
+// var difficulty = 'E', 'M', 'H';
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -27,6 +27,9 @@ function draw() {
     }else if (gameState === 3) {
       endGame();
     }
+    if (gameState === 1.5) {
+      instructions();
+    }
   }
 
 function startGame() {
@@ -38,7 +41,7 @@ function startGame() {
   textSize(50);
   textAlign(CENTER);
   textStyle(BOLD);
-  text('Paddle Game', 400, 300);
+  text('~Paddle Game~', 400, 300);
   //Paddle Game title
   rect(200, 500, 400, 100);
   fill(156, 255, 182);
@@ -65,6 +68,18 @@ function startGame() {
   textStyle(BOLD);
   text('MEDIUM', 400, 560);
   //medium text
+  fill(44, 66, 138);
+  textSize(15);
+  textStyle(BOLD)
+  text('by: Sky Gastinel', 115, 745);
+  //by: sky Gastinel
+  fill(237, 135, 255);
+  rect(350, 620, 100, 20);
+  //instructions button
+  fill(184, 61, 161);
+  textSize(15);
+  textStyle(BOLD);
+  text('instructions', 400, 635)
 }
 
 function mouseClicked() {
@@ -73,7 +88,7 @@ function mouseClicked() {
     mouseX<290 &&
     mouseY>510 &&
     mouseY<590) {
-      difficulty = 'E';
+      // difficulty = 'E';
       gameState = 2
     }
     //codes for easy button
@@ -81,7 +96,7 @@ function mouseClicked() {
     mouseX<440 &&
     mouseY>510 &&
     mouseY<590) {
-      difficulty = 'M';
+      // difficulty = 'M';
       gameState = 2
     }
     //codes for medium button
@@ -89,9 +104,10 @@ function mouseClicked() {
     mouseX< 590 &&
     mouseY> 510 &&
     mouseY< 590) {
-      difficulty = 'H'
+      // difficulty = 'H'
       gameState = 2
     }
+  if (mouseX>)
     //codes for the hard button
 }
 
@@ -116,21 +132,21 @@ function endGame() {
 }
 
 function  loadBalls(n) {
-  if (difficulty = E) {
+  // if (difficulty = E) {
     for(var i = 0; i<n; i++){
-      balls[i] = new Ball (random (width), random(height), 4, 4, 30, 30);
+      balls[i] = new Ball (random (width), random(30, 600), 4, 4, 20, 20);
+  //   }
+  // }
+  // if (difficulty = M) {
+  //   for(var i = 0; i<n; i++){
+  //   balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
+  //   }
+  // }
+  // if (difficulty = H) {
+  //   for(var i = 0; i<n; i++){
+  //   balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
+  //     }
     }
-  }
-  if (difficulty = M) {
-    for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
-    }
-  }
-  if (difficulty = H) {
-    for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
-    }
-  }
 }
 
 function loadPaddle() {
