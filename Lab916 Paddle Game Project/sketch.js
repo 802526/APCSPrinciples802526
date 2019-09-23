@@ -5,7 +5,7 @@
 var balls = []
 var paddle;
 var gameState = 1;
-// var difficulty = 'E', 'M', 'H';
+var difficulty = 'E';
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -88,7 +88,7 @@ function mouseClicked() {
     mouseX<290 &&
     mouseY>510 &&
     mouseY<590) {
-      // difficulty = 'E';
+      difficulty = 'E';
       gameState = 2
     }
     //codes for easy button
@@ -96,7 +96,7 @@ function mouseClicked() {
     mouseX<440 &&
     mouseY>510 &&
     mouseY<590) {
-      // difficulty = 'M';
+      difficulty = 'M';
       gameState = 2
     }
     //codes for medium button
@@ -104,11 +104,22 @@ function mouseClicked() {
     mouseX< 590 &&
     mouseY> 510 &&
     mouseY< 590) {
-      // difficulty = 'H'
+      difficulty = 'H'
       gameState = 2
     }
-  if (mouseX>)
+  if (mouseX>350 &&
+      mouseX<450 &&
+      mouseY>620 &&
+      mouseY<640) {
+        gameState = 1.5
+      }
     //codes for the hard button
+    if (mouseX>300 &&
+        mouseX<500 &&
+        mouseY>680 &&
+        mouseY<730) {
+          gameState = 1
+        }
 }
 
 function playGame() {
@@ -132,20 +143,23 @@ function endGame() {
 }
 
 function  loadBalls(n) {
-  // if (difficulty = E) {
+  if (difficulty = 'E') {
+    n=10
     for(var i = 0; i<n; i++){
       balls[i] = new Ball (random (width), random(30, 600), 4, 4, 20, 20);
-  //   }
-  // }
-  // if (difficulty = M) {
-  //   for(var i = 0; i<n; i++){
-  //   balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
-  //   }
-  // }
-  // if (difficulty = H) {
-  //   for(var i = 0; i<n; i++){
-  //   balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
-  //     }
+    }
+  }
+  if (difficulty = 'M') {
+    n=12
+    for(var i = 0; i<n; i++){
+    balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
+    }
+  }
+  if (difficulty = 'H') {
+    n=15
+    for(var i = 0; i<n; i++){
+    balls[i] = new Ball (random (width), random(height), 4, 4, 11, 11);
+      }
     }
 }
 
@@ -161,4 +175,33 @@ function runBalls() {
   for(var i =0; i<balls.length; i++){
     balls[i].run();
   }
+}
+
+function instructions() {
+  fill(62, 173, 118);
+  rect(50, 50, 700, 700);
+  //green background
+  fill(0, 0, 0);
+  textSize(50);
+  textStyle(BOLD);
+  textAlign(CENTER);
+  text('Instructions', 400, 180);
+  //instructions title
+  fill(0, 0, 0);
+  textSize(20);
+  textStyle(BOLD);
+  text('Move the mouse in order to move your paddle. The goal of the game', 400, 400);
+  text('is to survive as long as possible. When a ball hits the bottom of the', 400, 425);
+  text('paddle, health is lost. When a ball hits the top of the paddle, the ball', 400, 450);
+  text('disappears and your score increases. After all the balls disappear,', 400, 475);
+  text('another round begins and more balls are added to the screen.', 400, 500);
+  text('Good luck,' 400, 535)
+  //Instructions
+  fill(18, 184, 153);
+  rect(300, 680, 200, 50);
+  //blue button
+  fill(14, 117, 107);
+  textSize(25);
+  textStyle(BOLD);
+  text('Return to Home', 400, 715);
 }
