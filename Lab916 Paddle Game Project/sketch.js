@@ -84,44 +84,46 @@ function startGame() {
 
 function mouseClicked() {
   // use mouseX and mouseY and gamestate to determine if we clicked on a button.
-  if(mouseX>210 &&
-    mouseX<290 &&
-    mouseY>510 &&
-    mouseY<590) {
-      difficulty = 'E';
-      gameState = 2
-    }
+  if (gameState = 1) {
+    if(mouseX>210 &&
+      mouseX<290 &&
+      mouseY>510 &&
+      mouseY<590) {
+        difficulty = 'E';
+        gameState = 2
+      }
     //codes for easy button
-  if(mouseX>360 &&
-    mouseX<440 &&
-    mouseY>510 &&
-    mouseY<590) {
-      difficulty = 'M';
-      gameState = 2
-    }
+    if(mouseX>360 &&
+      mouseX<440 &&
+      mouseY>510 &&
+      mouseY<590) {
+        difficulty = 'M';
+        gameState = 2
+      }
     //codes for medium button
-  if(mouseX>510 &&
-    mouseX< 590 &&
-    mouseY> 510 &&
-    mouseY< 590) {
-      difficulty = 'H'
-      gameState = 2
-    }
+    if(mouseX>510 &&
+      mouseX< 590 &&
+      mouseY> 510 &&
+      mouseY< 590) {
+        difficulty = 'H'
+        gameState = 2
+      }
 
   //codes for the hard button/level
-  if (mouseX>350 &&
-      mouseX<450 &&
-      mouseY>620 &&
-      mouseY<640) {
-        gameState = 1.5
-      }
-    //codes for the hard button
-    if (mouseX>300 &&
-        mouseX<500 &&
-        mouseY>680 &&
-        mouseY<730) {
-          gameState = 1
+    if (mouseX>350 &&
+        mouseX<450 &&
+        mouseY>620 &&
+        mouseY<640) {
+          gameState = 1.5
         }
+    //codes for the hard button
+      if (mouseX>300 &&
+          mouseX<500 &&
+          mouseY>680 &&
+          mouseY<730) {
+            gameState = 1
+          }
+  }
 }
 
 function playGame() {
