@@ -45,6 +45,27 @@ class Ball {
   update() {
     this.loc.add(this.vel);
     this.vel.add(this.acc);
+
+    if(difficulty === 'E') {
+      this.sizeX=20
+      this.sizeY=20
+      this.vel.x === (random(-4, 4))
+      this.vel.y === (random(-4, 4))
+    }
+    if(difficulty === 'M') {
+      this.sizeX=15
+      this.sizeY=15
+      this.vel.x === (random(-5, 5))
+      this.vel.y === (random(-5, 5))
+    }
+    if(difficulty === 'H') {
+      this.sizeX=12
+      this.sizeY=12
+      this.vel.x === (random(-6.0, 6.0))
+      this.vel.y === (random(-5.5, 5.5))
+    }
+//different sizes for different levels and velocities
+
   }
 
   render(){

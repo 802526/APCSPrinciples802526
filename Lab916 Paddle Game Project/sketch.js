@@ -107,6 +107,8 @@ function mouseClicked() {
       difficulty = 'H'
       gameState = 2
     }
+
+  //codes for the hard button/level
   if (mouseX>350 &&
       mouseX<450 &&
       mouseY>620 &&
@@ -143,24 +145,9 @@ function endGame() {
 }
 
 function  loadBalls(n) {
-  if (difficulty = 'E') {
-    n=10
     for(var i = 0; i<n; i++){
-      balls[i] = new Ball (random (width), random(30, 600), 4, 4, 20, 20);
-    }
-  }
-  if (difficulty = 'M') {
-    n=12
-    for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(height), 4, 4, 15, 15);
-    }
-  }
-  if (difficulty = 'H') {
-    n=15
-    for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(height), 4, 4, 11, 11);
+    balls[i] = new Ball (random (width), random(0, 650), 4, 4, 15, 15);
       }
-    }
 }
 
 function loadPaddle() {
@@ -195,7 +182,7 @@ function instructions() {
   text('paddle, health is lost. When a ball hits the top of the paddle, the ball', 400, 450);
   text('disappears and your score increases. After all the balls disappear,', 400, 475);
   text('another round begins and more balls are added to the screen.', 400, 500);
-  text('Good luck,' 400, 535)
+  text('Good luck', 400, 535);
   //Instructions
   fill(18, 184, 153);
   rect(300, 680, 200, 50);
