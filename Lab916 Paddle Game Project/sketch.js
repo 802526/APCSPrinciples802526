@@ -1,11 +1,12 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
-//  The setup function function is called once when your program begins
+//  Sky Gastinel
+// 25 September 2019
+// This is a comment
+//The setup function function is called once when your program begins
 var balls = []
 var paddle;
 var gameState = 1;
 var difficulty = 'E';
+var btn1, btn2, btn3;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -13,6 +14,7 @@ function setup() {
   fill(209, 209, 209);
   loadBalls(10);
   loadPaddle();
+  loadButtons();
 }
 
 //  The draw function is called @ 30 fps
@@ -33,62 +35,63 @@ function draw() {
   }
 
 function startGame() {
+  btn1.run();
 
-  fill(90, 125, 242);
-  rect(50, 50, 700, 700);
-  //blue box
-  fill(237, 135, 255)
-  textSize(50);
-  textAlign(CENTER);
-  textStyle(BOLD);
-  text('~Paddle Game~', 400, 300);
-  //Paddle Game title
-  rect(200, 500, 400, 100);
-  fill(156, 255, 182);
-  rect(210, 510, 80, 80);
-  //green easy button
-  fill(66, 125, 81);
-  textSize(20);
-  textStyle(BOLD);
-  text('EASY', 250, 560);
-  //easy words
-  fill(255, 89, 120);
-  rect(510, 510, 80, 80);
-  //red hard button
-  fill(179, 27, 62)
-  textSize(20);
-  textStyle(BOLD);
-  text('HARD', 550, 560);
-  //hard text
-  fill(244, 250, 137);
-  rect(360, 510, 80, 80);
-  //medium yellow button
-  fill(212, 191, 32);
-  textSize(20);
-  textStyle(BOLD);
-  text('MEDIUM', 400, 560);
-  //medium text
-  fill(44, 66, 138);
-  textSize(15);
-  textStyle(BOLD)
-  text('by: Sky Gastinel', 115, 745);
-  //by: sky Gastinel
-  fill(237, 135, 255);
-  rect(350, 620, 100, 20);
-  //instructions button
-  fill(184, 61, 161);
-  textSize(15);
-  textStyle(BOLD);
-  text('instructions', 400, 635)
+  // fill(90, 125, 242);
+  // rect(50, 50, 700, 700);
+  // //blue box
+  // fill(237, 135, 255)
+  // textSize(50);
+  // textAlign(CENTER);
+  // textStyle(BOLD);
+  // text('~Paddle Game~', 400, 300);
+  // //Paddle Game title
+  // rect(200, 500, 400, 100);
+  // fill(156, 255, 182);
+  // rect(210, 510, 80, 80);
+  // //green easy button
+  // fill(66, 125, 81);
+  // textSize(20);
+  // textStyle(BOLD);
+  // text('EASY', 250, 560);
+  // //easy words
+  // fill(255, 89, 120);
+  // rect(510, 510, 80, 80);
+  // //red hard button
+  // fill(179, 27, 62)
+  // textSize(20);
+  // textStyle(BOLD);
+  // text('HARD', 550, 560);
+  // //hard text
+  // fill(244, 250, 137);
+  // rect(360, 510, 80, 80);
+  // //medium yellow button
+  // fill(212, 191, 32);
+  // textSize(20);
+  // textStyle(BOLD);
+  // text('MEDIUM', 400, 560);
+  // //medium text
+  // fill(44, 66, 138);
+  // textSize(15);
+  // textStyle(BOLD)
+  // text('by: Sky Gastinel', 115, 745);
+  // //by: sky Gastinel
+  // fill(237, 135, 255);
+  // rect(350, 620, 100, 20);
+  // //instructions button
+  // fill(184, 61, 161);
+  // textSize(15);
+  // textStyle(BOLD);
+  // text('instructions', 400, 635)
 }
 
 function mouseClicked() {
   // use mouseX and mouseY and gamestate to determine if we clicked on a button.
-  if (gameState = 1) {
     if(mouseX>210 &&
       mouseX<290 &&
       mouseY>510 &&
-      mouseY<590) {
+      mouseY<590 &&
+      gameState = 1) {
         difficulty = 'E';
         gameState = 2
       }
@@ -137,7 +140,7 @@ function endGame() {
   fill(168, 12, 12);
   textStyle(BOLD);
   textAlign(CENTER);
-  text('YOU LOSE!', 50, 50)
+  text('YOU LOSE!', 50, 50);
   fill(54, 54, 247);
   rect(100, 500, 600, 200);
   //the blue button to play again
@@ -155,6 +158,10 @@ function  loadBalls(n) {
 function loadPaddle() {
     paddle = new Paddle(random(width), random(height), 150, 15);
   }
+
+function loadButtons() {
+  btn1 = new Button(210, 510, 80, 80, 'Easy', color(156, 255, 182));
+}
 
 function runPaddle() {
   paddle.run();
