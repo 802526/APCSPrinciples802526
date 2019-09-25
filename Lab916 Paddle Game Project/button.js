@@ -12,36 +12,36 @@ class Button {
   }
 
   run(){
-    this.checkMouse();
+    // this.checkMouse();
     this.render();
   }
 
-  checkMouse() {
-    if(mouseX>this.loc.x &&
-        mouseX<this.loc.x + this.w &&
-        mouseY>this.loc.y &&
-        mouseY<this.loc.y + this.h &&
-        this.msg = 'Easy') {
-          gameState = 2;
-          difficulty = 'E';
-        }
-    if(mouseX>this.loc.x &&
-        mouseX<this.loc.x + this.w &&
-        mouseY>this.loc.y &&
-        mouseY<this.loc.y + this.h &&
-        this.msg = 'Medium') {
-          gameState = 2;
-          difficulty = 'M';
-        }
-    if(mouseX>this.loc.x &&
-        mouseX<this.loc.x + this.w &&
-        mouseY>this.loc.y &&
-        mouseY<this.loc.y + this.h &&
-        this.msg = 'Hard') {
-          gameState = 2;
-          difficulty = 'H';
-        }
-  }
+  // checkMouse() {
+  //   if(mouseX>this.loc.x &&
+  //       mouseX<this.loc.x + this.w &&
+  //       mouseY>this.loc.y &&
+  //       mouseY<this.loc.y + this.h &&
+  //       this.msg = 'Easy') {
+  //         gameState = 2;
+  //         difficulty = 'E';
+  //       }
+  //   if(mouseX>this.loc.x &&
+  //       mouseX<this.loc.x + this.w &&
+  //       mouseY>this.loc.y &&
+  //       mouseY<this.loc.y + this.h &&
+  //       this.msg = 'Medium') {
+  //         gameState = 2;
+  //         difficulty = 'M';
+  //       }
+  //   if(mouseX>this.loc.x &&
+  //       mouseX<this.loc.x + this.w &&
+  //       mouseY>this.loc.y &&
+  //       mouseY<this.loc.y + this.h &&
+  //       this.msg = 'Hard') {
+  //         gameState = 2;
+  //         difficulty = 'H';
+  //       }
+  // }
 
   render() {
     fill(this.clr);
