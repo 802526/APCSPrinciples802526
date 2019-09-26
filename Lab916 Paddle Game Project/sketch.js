@@ -152,7 +152,7 @@ function endGame() {
 
 function  loadBalls(n) {
     for(var i = 0; i<n; i++){
-    balls[i] = new Ball (random (width), random(0, 650), 4, 4, 15, 15);
+    balls[i] = new Ball (random (width), random(0, 650), random(-4, 4), random(-4,4), 15, 15);
       }
 }
 
@@ -169,11 +169,33 @@ function loadButtons() {
     gameState = 2;
     difficulty = 'M'
   }
+  var btn3callback = function() {
+    gameState = 2;
+    difficulty = 'H'
+  }
+  var btn4callback = function() {
+    gameState = 1.5;
+  }
   var btn1 = new Button(210, 510, 80, 80, 'Easy', color(156, 255, 182), btn1callback);
 //easy button
   var btn2 = new Button(360, 510, 80, 80, 'Medium', color(244, 250, 137), btn2callback);
+  //medium button
+  var btn3 = new Button(510, 510, 80, 80, 'Hard', color(255, 89, 120), btn2callback);
+  //hard button
+  var btn4 = new Button(330, 620, 140, 30, 'Instructions', color(237, 135, 255), btn4callback);
+  //instructions button
   buttons.push(btn1);
   buttons.push(btn2);
+  buttons.push(btn3);
+  buttons.push(btn4);
+
+  if(gameState = 1.5) {
+    var btn5callback = function() {
+      gameState = 1;
+    }
+    var btn5 = new Button(300, 680, 200, 50, 'Return to home', color(14, 117, 107), btn5callback);
+    buttons.push(btn5);
+  }
 }
 
 function runPaddle() {

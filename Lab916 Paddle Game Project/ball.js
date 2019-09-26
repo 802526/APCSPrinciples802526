@@ -58,26 +58,33 @@ class Ball {
   }
 
   update() {
-    this.loc.add(this.vel);
-    this.vel.add(this.acc);
+
+
+
 
     if(difficulty === 'E') {
       this.sizeX=20
       this.sizeY=20
-      this.vel.x === (random(-4, 4))
-      this.vel.y === (random(-4, 4))
+      this.acc.y = 0.01
+      this.vel.add(this.acc);
+      this.vel.limit(5);
+      this.loc.add(this.vel);
     }
     if(difficulty === 'M') {
       this.sizeX=15
       this.sizeY=15
-      this.vel.x === (random(-5, 5))
-      this.vel.y === (random(-5, 5))
+      this.acc.y = 0.02
+      this.vel.add(this.acc);
+      this.vel.limit(10);
+      this.loc.add(this.vel);
     }
     if(difficulty === 'H') {
       this.sizeX=12
       this.sizeY=12
-      this.vel.x === (random(-6.0, 6.0))
-      this.vel.y === (random(-5.5, 5.5))
+      this.acc.y = 0.03
+      this.vel.add(this.acc);
+      this.vel.limit(15);
+      this.loc.add(this.vel);
     }
 //different sizes for different levels and velocities
 
