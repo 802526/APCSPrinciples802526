@@ -39,6 +39,21 @@ class Ball {
         this.loc.y > paddle.loc.y &&
         this.loc.y < paddle.loc.y + paddle.h) {
       this.vel.y = -.99*this.vel.y
+      //If ball hits the top, ball disappears
+      if (this.vel.y <= 0) {
+        for(var i = 0; i<balls.length; i++) {
+          if(this === balls[i]) {
+            balls.splice(i, 1);
+          }
+        }
+      }
+      //if ball hits the bottom, more balls added
+      else{
+        for(var b = 0; b<3; b++) {
+
+          balls.push(new Ball(random (width), random(0, 650), 4, 4, 15, 15))
+        }
+      }
     }
   }
 

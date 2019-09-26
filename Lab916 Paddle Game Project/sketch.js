@@ -3,10 +3,10 @@
 // This is a comment
 //The setup function function is called once when your program begins
 var balls = []
+var buttons = []
 var paddle;
 var gameState = 1;
-var difficulty = 'E';
-var btn1, btn2, btn3;
+var difficulty;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -35,18 +35,16 @@ function draw() {
   }
 
 function startGame() {
-  btn1.run();
-
-  // fill(90, 125, 242);
-  // rect(50, 50, 700, 700);
-  // //blue box
-  // fill(237, 135, 255)
-  // textSize(50);
-  // textAlign(CENTER);
-  // textStyle(BOLD);
-  // text('~Paddle Game~', 400, 300);
-  // //Paddle Game title
-  // rect(200, 500, 400, 100);
+  fill(90, 125, 242);
+  rect(50, 50, 700, 700);
+  //blue box
+  fill(237, 135, 255)
+  textSize(50);
+  textAlign(CENTER);
+  textStyle(BOLD);
+  text('~Paddle Game~', 400, 300);
+  //Paddle Game title
+  rect(200, 500, 400, 100);
   // fill(156, 255, 182);
   // rect(210, 510, 80, 80);
   // //green easy button
@@ -71,11 +69,11 @@ function startGame() {
   // textStyle(BOLD);
   // text('MEDIUM', 400, 560);
   // //medium text
-  // fill(44, 66, 138);
-  // textSize(15);
-  // textStyle(BOLD)
-  // text('by: Sky Gastinel', 115, 745);
-  // //by: sky Gastinel
+  fill(44, 66, 138);
+  textSize(15);
+  textStyle(BOLD)
+  text('by: Sky Gastinel', 115, 745);
+  //by: sky Gastinel
   // fill(237, 135, 255);
   // rect(350, 620, 100, 20);
   // //instructions button
@@ -83,51 +81,54 @@ function startGame() {
   // textSize(15);
   // textStyle(BOLD);
   // text('instructions', 400, 635)
+  runButtons();
 }
 
 function mouseClicked() {
   // use mouseX and mouseY and gamestate to determine if we clicked on a button.
-    if(mouseX>210 &&
-      mouseX<290 &&
-      mouseY>510 &&
-      mouseY<590 &&
-      gameState = 1) {
-        difficulty = 'E';
-        gameState = 2
-      }
-    //codes for easy button
-    if(mouseX>360 &&
-      mouseX<440 &&
-      mouseY>510 &&
-      mouseY<590) {
-        difficulty = 'M';
-        gameState = 2
-      }
-    //codes for medium button
-    if(mouseX>510 &&
-      mouseX< 590 &&
-      mouseY> 510 &&
-      mouseY< 590) {
-        difficulty = 'H'
-        gameState = 2
-      }
-
-  //codes for the hard button/level
-    if (mouseX>350 &&
-        mouseX<450 &&
-        mouseY>620 &&
-        mouseY<640) {
-          gameState = 1.5
-        }
-    //codes for the hard button
-      if (mouseX>300 &&
-          mouseX<500 &&
-          mouseY>680 &&
-          mouseY<730) {
-            gameState = 1
-          }
-  }
+    // if(mouseX>210 &&
+    //   mouseX<290 &&
+    //   mouseY>510 &&
+    //   mouseY<590 &&
+    //   gameState === 1) {
+    //     difficulty = 'E';
+    //     gameState = 2
+    //   }
+//     //codes for easy button
+//     if(mouseX>360 &&
+//       mouseX<440 &&
+//       mouseY>510 &&
+//       mouseY<590) {
+//         difficulty = 'M';
+//         gameState = 2
+//       }
+//     //codes for medium button
+//     if(mouseX>510 &&
+//       mouseX< 590 &&
+//       mouseY> 510 &&
+//       mouseY< 590) {
+//         difficulty = 'H'
+//         gameState = 2
+//       }
+//
+//   //codes for the hard button/level
+//     if (mouseX>350 &&
+//         mouseX<450 &&
+//         mouseY>620 &&
+//         mouseY<640) {
+//           gameState = 1.5
+//         }
+//     //codes for the hard button
+//       if (mouseX>300 &&
+//           mouseX<500 &&
+//           mouseY>680 &&
+//           mouseY<730) {
+//             gameState = 1
+//           }
+for(var i = 0; i<buttons.length; i++) {
+  buttons[i].mouseClicked();
 }
+  }
 
 function playGame() {
   runPaddle();
@@ -160,7 +161,19 @@ function loadPaddle() {
   }
 
 function loadButtons() {
-  btn1 = new Button(210, 510, 80, 80, 'Easy', color(156, 255, 182));
+  var btn1callback = function() {
+    gameState = 2;
+    difficulty = 'E';
+  }
+  var btn2callback = function() {
+    gameState = 2;
+    difficulty = 'M'
+  }
+  var btn1 = new Button(210, 510, 80, 80, 'Easy', color(156, 255, 182), btn1callback);
+//easy button
+  var btn2 = new Button(360, 510, 80, 80, 'Medium', color(244, 250, 137), btn2callback);
+  buttons.push(btn1);
+  buttons.push(btn2);
 }
 
 function runPaddle() {
@@ -170,6 +183,12 @@ function runPaddle() {
 function runBalls() {
   for(var i =0; i<balls.length; i++){
     balls[i].run();
+  }
+}
+
+function runButtons() {
+  for( var i = 0; i<buttons.length; i++) {
+    buttons[i].run();
   }
 }
 
