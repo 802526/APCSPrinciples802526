@@ -5,7 +5,7 @@ class Ball {
   constructor(x,y,dx,dy,sizeX,sizeY){
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
-    this.acc = createVector(0,.2);
+    this.acc = createVector(0,-.01);
     this.clr = color(random(164, 252), random(164, 252), random(164, 252));
     this.sizeX = sizeX;
     this.sizeY = sizeY;
@@ -73,7 +73,7 @@ class Ball {
     if(difficulty === 'M') {
       this.sizeX=15
       this.sizeY=15
-      this.acc.y = 0.02
+      this.acc.y = 0.01
       this.vel.add(this.acc);
       this.vel.limit(10);
       this.loc.add(this.vel);
@@ -81,9 +81,9 @@ class Ball {
     if(difficulty === 'H') {
       this.sizeX=12
       this.sizeY=12
-      this.acc.y = 0.03
+      this.acc.y = 0.01
       this.vel.add(this.acc);
-      this.vel.limit(15);
+      this.vel.limit(20);
       this.loc.add(this.vel);
     }
 //different sizes for different levels and velocities

@@ -20,8 +20,6 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
   background(209, 209, 209, 50);
-  // attractor.run()
-  // repeller.run()
     if (gameState === 1) {
       startGame();
     }else if (gameState === 2) {
@@ -45,86 +43,16 @@ function startGame() {
   text('~Paddle Game~', 400, 300);
   //Paddle Game title
   rect(200, 500, 400, 100);
-  // fill(156, 255, 182);
-  // rect(210, 510, 80, 80);
-  // //green easy button
-  // fill(66, 125, 81);
-  // textSize(20);
-  // textStyle(BOLD);
-  // text('EASY', 250, 560);
-  // //easy words
-  // fill(255, 89, 120);
-  // rect(510, 510, 80, 80);
-  // //red hard button
-  // fill(179, 27, 62)
-  // textSize(20);
-  // textStyle(BOLD);
-  // text('HARD', 550, 560);
-  // //hard text
-  // fill(244, 250, 137);
-  // rect(360, 510, 80, 80);
-  // //medium yellow button
-  // fill(212, 191, 32);
-  // textSize(20);
-  // textStyle(BOLD);
-  // text('MEDIUM', 400, 560);
-  // //medium text
+  //pink box for buttons
   fill(44, 66, 138);
   textSize(15);
   textStyle(BOLD)
   text('by: Sky Gastinel', 115, 745);
-  //by: sky Gastinel
-  // fill(237, 135, 255);
-  // rect(350, 620, 100, 20);
-  // //instructions button
-  // fill(184, 61, 161);
-  // textSize(15);
-  // textStyle(BOLD);
-  // text('instructions', 400, 635)
+  //by: Sky Gastinel
   runButtons();
 }
 
 function mouseClicked() {
-  // use mouseX and mouseY and gamestate to determine if we clicked on a button.
-    // if(mouseX>210 &&
-    //   mouseX<290 &&
-    //   mouseY>510 &&
-    //   mouseY<590 &&
-    //   gameState === 1) {
-    //     difficulty = 'E';
-    //     gameState = 2
-    //   }
-//     //codes for easy button
-//     if(mouseX>360 &&
-//       mouseX<440 &&
-//       mouseY>510 &&
-//       mouseY<590) {
-//         difficulty = 'M';
-//         gameState = 2
-//       }
-//     //codes for medium button
-//     if(mouseX>510 &&
-//       mouseX< 590 &&
-//       mouseY> 510 &&
-//       mouseY< 590) {
-//         difficulty = 'H'
-//         gameState = 2
-//       }
-//
-//   //codes for the hard button/level
-//     if (mouseX>350 &&
-//         mouseX<450 &&
-//         mouseY>620 &&
-//         mouseY<640) {
-//           gameState = 1.5
-//         }
-//     //codes for the hard button
-//       if (mouseX>300 &&
-//           mouseX<500 &&
-//           mouseY>680 &&
-//           mouseY<730) {
-//             gameState = 1
-//           }
 for(var i = 0; i<buttons.length; i++) {
   buttons[i].mouseClicked();
 }
@@ -176,6 +104,11 @@ function loadButtons() {
   var btn4callback = function() {
     gameState = 1.5;
   }
+  // if(gameState = 1.5) {
+  //   var btn5callback = function() {
+  //     gameState = 1;
+  //   }
+  // }
   var btn1 = new Button(210, 510, 80, 80, 'Easy', color(156, 255, 182), btn1callback);
 //easy button
   var btn2 = new Button(360, 510, 80, 80, 'Medium', color(244, 250, 137), btn2callback);
@@ -183,19 +116,16 @@ function loadButtons() {
   var btn3 = new Button(510, 510, 80, 80, 'Hard', color(255, 89, 120), btn2callback);
   //hard button
   var btn4 = new Button(330, 620, 140, 30, 'Instructions', color(237, 135, 255), btn4callback);
-  //instructions button
+  // instructions button
+  // var btn5 = new Button(300, 680, 200, 50, 'Return to home', color(14, 117, 107), btn5callback);
+  //return to home button
   buttons.push(btn1);
   buttons.push(btn2);
   buttons.push(btn3);
   buttons.push(btn4);
-
-  if(gameState = 1.5) {
-    var btn5callback = function() {
-      gameState = 1;
-    }
-    var btn5 = new Button(300, 680, 200, 50, 'Return to home', color(14, 117, 107), btn5callback);
-    buttons.push(btn5);
-  }
+  // if(gameState = 1.5) {
+  //   buttons.push(btn5);
+  // }
 }
 
 function runPaddle() {
@@ -234,11 +164,18 @@ function instructions() {
   text('another round begins and more balls are added to the screen.', 400, 500);
   text('Good luck', 400, 535);
   //Instructions
-  fill(18, 184, 153);
-  rect(300, 680, 200, 50);
-  //blue button
-  fill(14, 117, 107);
-  textSize(25);
-  textStyle(BOLD);
-  text('Return to Home', 400, 715);
+  // fill(18, 184, 153);
+  // rect(300, 680, 200, 50);
+  // //blue button
+  // fill(14, 117, 107);
+  // textSize(25);
+  // textStyle(BOLD);
+  // text('Return to Home', 400, 715);
+  if(gameState = 1.5) {
+    var btn5callback = function() {
+      gameState = 1;
+    }
+  }
+  var btn5 = new Button(300, 680, 200, 50, 'Return to home', color(14, 117, 107), btn5callback);
+  buttons.push(btn5);
 }
