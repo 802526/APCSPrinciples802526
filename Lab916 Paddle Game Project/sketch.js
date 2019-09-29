@@ -8,7 +8,6 @@ var paddle;
 var gameState = 1;
 var difficulty;
 var health;
-var START_HEALTH = 30;
 var score;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -72,6 +71,10 @@ function playGame() {
   textSize(20);
   textStyle(BOLD);
   text('Score: '+score, 60, 60);
+  //score
+  if(balls.length<1) {
+    loadBalls(12);
+  }
 }
 
 function endGame() {
@@ -127,7 +130,7 @@ function gameState1Buttons() {
 //easy button
   var btn2 = new Button(360, 510, 80, 80, 'Medium', color(244, 250, 137), btn2callback);
   //medium button
-  var btn3 = new Button(510, 510, 80, 80, 'Hard', color(255, 89, 120), btn2callback);
+  var btn3 = new Button(510, 510, 80, 80, 'Hard', color(255, 89, 120), btn3callback);
   //hard button
   var btn4 = new Button(330, 620, 140, 30, 'Instructions', color(237, 135, 255), btn4callback);
   // instructions button
@@ -164,7 +167,15 @@ function runButtons() {
 }
 
 function playSetup() {
-  health = START_HEALTH;
+  if (difficulty === 'E') {
+    health = 10
+  }
+  if (difficulty === 'M') {
+    health = 7
+  }
+  if (difficulty === 'H') {
+    health = 4
+  }
   score = 0;
   buttons = [];
   loadBalls(10);

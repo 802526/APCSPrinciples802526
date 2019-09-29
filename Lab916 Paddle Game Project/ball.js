@@ -37,21 +37,17 @@ class Ball {
         this.loc.x < paddle.loc.x + paddle.w &&
         this.loc.y > paddle.loc.y &&
         this.loc.y < paddle.loc.y + paddle.h) {
-      this.vel.y = -1*this.vel.y
       //If ball hits the top, ball disappears
-      if (this.vel.y <= 0) {
-        score = score +3
-        for(var i = 0; i<balls.length; i++) {
-          if(this === balls[i]) {
-            balls.splice(i, 1);
-          }
-        }
+      if (this.vel.y >= 0) {
+        score = score +3;
+        balls.splice(balls.indexOf(this), 1);
       }
       //if ball hits the bottom, more balls added
       else{
+        health--;
+        this.vel.y *= -1
         for(var b = 0; b<3; b++) {
           balls.push(new Ball(random (width), random(0, 650), 4, 4, 15, 15));
-          health--;
         }
       }
     }
@@ -75,11 +71,17 @@ class Ball {
     if(difficulty === 'H') {
       this.sizeX=12
       this.sizeY=12
-      this.acc.y = 0.15
+      this.acc.y = 0.12
       this.vel.add(this.acc);
       this.loc.add(this.vel);
     }
 //different sizes for different levels and velocities
+  if(this.loc.x<-2 &&
+      this.loc.x>802 &&
+      this.loc.y<-2 &&
+      this.loc.y>802) {
+        balls.splice(balls.indexOf(this), 1);
+      }
 
   }
 
