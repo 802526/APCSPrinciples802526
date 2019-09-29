@@ -5,16 +5,17 @@
 var balls = []
 var buttons = []
 var paddle;
-var gameState = 1;
+var gameState = 3;
 var difficulty;
+var health;
+var START_HEALTH = 10;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(209, 209, 209);
-  loadBalls(10);
-  loadPaddle();
-  loadButtons();
+  // gameState1Buttons();
+  endGameSetup();
 }
 
 //  The draw function is called @ 30 fps
@@ -30,6 +31,7 @@ function draw() {
     if (gameState === 1.5) {
       instructions();
     }
+    runButtons();
   }
 
 function startGame() {
@@ -49,7 +51,6 @@ function startGame() {
   textStyle(BOLD)
   text('by: Sky Gastinel', 115, 745);
   //by: Sky Gastinel
-  runButtons();
 }
 
 function mouseClicked() {
@@ -61,24 +62,29 @@ for(var i = 0; i<buttons.length; i++) {
 function playGame() {
   runPaddle();
   runBalls();
+  fill(0, 0, 0);
+  textSize(20);
+  textStyle(BOLD);
+  text('Health: '+health, 60, 30);
+  if(health <= 0) {
+    endGameSetup();
+  }
 }
 
 function endGame() {
   fill(255, 74, 74);
   rect(50, 50, 700, 700);
+  //red background
   fill(168, 12, 12);
   textStyle(BOLD);
+  textSize(100)
   textAlign(CENTER);
-  text('YOU LOSE!', 50, 50);
-  fill(54, 54, 247);
-  rect(100, 500, 600, 200);
-  //the blue button to play again
-  fill(168, 12, 12);
-  textStyle(BOLD);
-  text('Play Again', 125, 510);
+  text('YOU LOSE!', 400, 400);
+//you lose text
 }
 
 function  loadBalls(n) {
+    balls = [];
     for(var i = 0; i<n; i++){
     balls[i] = new Ball (random (width), random(0, 650), random(-4, 4), random(-4,4), 15, 15);
       }
@@ -88,21 +94,23 @@ function loadPaddle() {
     paddle = new Paddle(random(width), random(height), 150, 15);
   }
 
-function loadButtons() {
+function gameState1Buttons() {
+  buttons = [];
   var btn1callback = function() {
-    gameState = 2;
     difficulty = 'E';
+    playSetup();
   }
   var btn2callback = function() {
-    gameState = 2;
     difficulty = 'M'
+    playSetup();
   }
   var btn3callback = function() {
-    gameState = 2;
     difficulty = 'H'
+    playSetup();
   }
   var btn4callback = function() {
     gameState = 1.5;
+    gameState15Buttons();
   }
   // if(gameState = 1.5) {
   //   var btn5callback = function() {
@@ -117,15 +125,20 @@ function loadButtons() {
   //hard button
   var btn4 = new Button(330, 620, 140, 30, 'Instructions', color(237, 135, 255), btn4callback);
   // instructions button
-  // var btn5 = new Button(300, 680, 200, 50, 'Return to home', color(14, 117, 107), btn5callback);
-  //return to home button
   buttons.push(btn1);
   buttons.push(btn2);
   buttons.push(btn3);
   buttons.push(btn4);
-  // if(gameState = 1.5) {
-  //   buttons.push(btn5);
-  // }
+}
+
+function gameState15Buttons() {
+  buttons = [];
+  var btn5callback = function() {
+    gameState = 1;
+    gameState1Buttons();
+  }
+  var btn5 = new Button(300, 680, 200, 50, 'Return to Home', color(101, 168, 91), btn5callback);
+  buttons.push(btn5);
 }
 
 function runPaddle() {
@@ -142,6 +155,25 @@ function runButtons() {
   for( var i = 0; i<buttons.length; i++) {
     buttons[i].run();
   }
+}
+
+function playSetup() {
+  health = START_HEALTH;
+  buttons = [];
+  loadBalls(10);
+  loadPaddle();
+  gameState = 2;
+}
+
+function endGameSetup() {
+  gameState = 3;
+  buttons = [];
+  var btn6callback = function() {
+    gameState = 1;
+    gameState1Buttons();
+  }
+  var btn6 = new Button(300, 680, 200, 50, 'Return to Home?', color(114, 185, 252), btn6callback);
+  buttons.push(btn6);
 }
 
 function instructions() {
@@ -171,11 +203,4 @@ function instructions() {
   // textSize(25);
   // textStyle(BOLD);
   // text('Return to Home', 400, 715);
-  if(gameState = 1.5) {
-    var btn5callback = function() {
-      gameState = 1;
-    }
-  }
-  var btn5 = new Button(300, 680, 200, 50, 'Return to home', color(14, 117, 107), btn5callback);
-  buttons.push(btn5);
 }
