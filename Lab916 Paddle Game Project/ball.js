@@ -40,6 +40,7 @@ class Ball {
       this.vel.y = -1*this.vel.y
       //If ball hits the top, ball disappears
       if (this.vel.y <= 0) {
+        score = score +3
         for(var i = 0; i<balls.length; i++) {
           if(this === balls[i]) {
             balls.splice(i, 1);
@@ -50,7 +51,7 @@ class Ball {
       else{
         for(var b = 0; b<3; b++) {
           balls.push(new Ball(random (width), random(0, 650), 4, 4, 15, 15));
-          health--
+          health--;
         }
       }
     }
@@ -58,9 +59,9 @@ class Ball {
 
   update() {
     if(difficulty === 'E') {
-      this.sizeX=20
-      this.sizeY=20
-      this.acc.y = 0.05
+      this.sizeX=20;
+      this.sizeY=20;
+      this.acc.y = 0.05;
       this.vel.add(this.acc);
       this.loc.add(this.vel);
     }

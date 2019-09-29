@@ -5,17 +5,17 @@
 var balls = []
 var buttons = []
 var paddle;
-var gameState = 3;
+var gameState = 1;
 var difficulty;
 var health;
-var START_HEALTH = 10;
+var START_HEALTH = 30;
+var score;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(209, 209, 209);
-  // gameState1Buttons();
-  endGameSetup();
+  gameState1Buttons();
 }
 
 //  The draw function is called @ 30 fps
@@ -38,7 +38,7 @@ function startGame() {
   fill(90, 125, 242);
   rect(50, 50, 700, 700);
   //blue box
-  fill(237, 135, 255)
+  fill(237, 135, 255);
   textSize(50);
   textAlign(CENTER);
   textStyle(BOLD);
@@ -48,7 +48,7 @@ function startGame() {
   //pink box for buttons
   fill(44, 66, 138);
   textSize(15);
-  textStyle(BOLD)
+  textStyle(BOLD);
   text('by: Sky Gastinel', 115, 745);
   //by: Sky Gastinel
 }
@@ -69,6 +69,9 @@ function playGame() {
   if(health <= 0) {
     endGameSetup();
   }
+  textSize(20);
+  textStyle(BOLD);
+  text('Score: '+score, 60, 60);
 }
 
 function endGame() {
@@ -77,10 +80,13 @@ function endGame() {
   //red background
   fill(168, 12, 12);
   textStyle(BOLD);
-  textSize(100)
+  textSize(100);
   textAlign(CENTER);
   text('YOU LOSE!', 400, 400);
 //you lose text
+  textSize(40);
+  textAlign(CENTER);
+  text('Score: '+score, 400, 500);
 }
 
 function  loadBalls(n) {
@@ -159,6 +165,7 @@ function runButtons() {
 
 function playSetup() {
   health = START_HEALTH;
+  score = 0;
   buttons = [];
   loadBalls(10);
   loadPaddle();
