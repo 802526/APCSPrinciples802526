@@ -1,5 +1,5 @@
 //Sky Gastinel
-// Aug 21
+// Aug 28
 //github test
 class Ball {
   constructor(x,y,dx,dy,sizeX,sizeY){

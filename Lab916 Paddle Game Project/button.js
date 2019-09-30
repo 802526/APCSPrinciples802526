@@ -1,5 +1,5 @@
 //Sky Gastinel
-//25 Septmeber 2019
+//28 Septmeber 2019
 //this is a coment
 //  The setup function function is called once when your program begins
 class Button {
@@ -24,7 +24,7 @@ class Button {
           this.callback();
         }
   }
-  
+
   render() {
     fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h);
