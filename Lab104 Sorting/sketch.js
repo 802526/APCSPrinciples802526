@@ -8,7 +8,13 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
+var list = [4, 7, 3, 8, 1, 9, 2];
 
+swap (list, 1, 2)
+
+function swap(list, a, b) {
+  
+}
 }
 
 //  The draw function is called @ 30 fps
