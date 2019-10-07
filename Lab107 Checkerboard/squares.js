@@ -5,5 +5,15 @@ class Square {
     this.h = h;
     this.clr = clr;
   }
-  
-}
+
+  run() {
+    this.render();
+  }
+
+  render() {
+    
+  }
+
+  }
+
+}//++++++++++++++++++++++end of square class
