@@ -8,13 +8,22 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
-var list = [4, 7, 3, 8, 1, 9, 2];
+  var list = [4, 7, 3, 8, 1, 9, 2];
+  for(var i = 0; i < list.length; i++) {
+    var index = i;
+    for(var j = i; j < list.length; j++) {
+      if (list[j] < list[index]) {
+        index = j;
+      }
+    }
+    // Swap the values in list at index "i" and index "index"
+    var temp;
+    temp = list[i];
+    list[i] = list[index];
+    list[index] = temp;
+  }
 
-swap (list, 1, 2)
-
-function swap(list, a, b) {
-  
-}
+  console.log(list);
 }
 
 //  The draw function is called @ 30 fps
