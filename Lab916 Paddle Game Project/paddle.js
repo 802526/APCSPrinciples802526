@@ -3,7 +3,7 @@
 //this is a coment
 //  The setup function function is called once when your program begins
 class Paddle {
-  constructor(x, y, w, h){
+  constructor(x, y, w, h) {
     this.loc = createVector(x, y);
     this.w = w;
     this.h = h;
