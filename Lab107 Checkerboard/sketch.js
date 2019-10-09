@@ -3,6 +3,7 @@
 var numberRectV = 8
 var numberRectH = 8
 var a, b, c;
+var clr;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -17,7 +18,13 @@ function draw() {
     for(var n = 1; n <= numberRectV; n++) {
       var upratio = (r-1)/(numberRectH-1);
       var acrossratio = (n-1)/(numberRectV-1);
-      fill(20, 100, 20);
+      if(r%2 === 0) {
+        clr = fill(121, 202, 232)
+      }
+      if(r%2 === 1) {
+        clr = fill(240, 240, 129)
+      }
+      this.clr;
       rect((n-1)*width/numberRectV, (r-1)*height/numberRectH, width/numberRectV, height/numberRectH);
     }
   }
