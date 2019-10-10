@@ -18,10 +18,10 @@ function draw() {
     for(var n = 1; n <= numberRectV; n++) {
       var upratio = (r-1)/(numberRectH-1);
       var acrossratio = (n-1)/(numberRectV-1);
-      if(r%2 === 0) {
+      if(r%2 === n%2) {
         clr = fill(121, 202, 232)
-      }
-      if(r%2 === 1) {
+      }else {
+      if(r%1 === n%1)
         clr = fill(240, 240, 129)
       }
       this.clr;
