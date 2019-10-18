@@ -1,9 +1,10 @@
 
-//  Your Name
-// 	Date or version number
+//  Sky Gastinel
+// 	18 October 2019
 //  This is a comment
 //  The setup function function is called once when your program begins
 var arr = []
+
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -11,6 +12,7 @@ function setup() {
   fill(200, 30, 150);
 
 loadarray(100);
+
   var temp;
       for (var  i = 1; i < arr.length; i++) {
             for(var  j = i ; j > 0 ; j--) {
@@ -33,6 +35,6 @@ function draw() {
 
 function loadarray(n) {
   for(var i = 0; i<n; i++) {
-    arr[i] = random(0, 1000)
+    arr[i] = random(100)
   }
 }
