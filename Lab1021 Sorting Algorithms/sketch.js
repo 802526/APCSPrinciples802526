@@ -5,6 +5,8 @@
 var arr = []
 var numInsertionSwap = 0;
 var numBubbleSwap = 0;
+var numInsertionCompares = 0;
+var numBubbleCompares = 0;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -13,9 +15,10 @@ function setup() {
 
 //Insertion Sorting
   loadarray(100);
-
+    var iT1 = millis();
     var temp;
         for (var  i = 1; i < arr.length; i++) {
+              numInsertionCompares = numInsertionCompares + 1
               for(var  j = i ; j > 0 ; j--) {
   //  Swapping Code
                  if(arr[j] < arr[j-1]){
@@ -27,29 +30,46 @@ function setup() {
         //  Swapping Code
               }
          }
-    console.log(arr)
-    console.log(numInsertionSwap)
+    var iT2 = millis();
+    // console.log('Sorted Insertion array');
+    // console.log(arr);
+    console.log('Number of Insertion Swaps');
+    console.log(numInsertionSwap);
+    console.log('Number of Insertion Compares');
+    console.log(numInsertionCompares);
+    console.log('Insertion Sorting Elapsed Time' + (iT2 - iT1)/1000)
 //end of insertion sorting code++++++++++++++++
 
-//Bubble sorting Code
-  loadarray(100)
-       for (var i = arr.length; i>=0; i--) {
-         for(var j = 1; j<=i; j++) {
-           if(arr[j-1]>arr[j]) {
-    // Swapping Code ++++++++++++++
-               var temp = arr[j-1];
-               arr[j-1] = arr[j];
-               arr[j] = temp;
-               numBubbleSwap = numBubbleSwap + 1
-            }
-    // Swapping Code ++++++++++++++
-         }
-       }
-       console.log(arr)
-       console.log(numBubbleSwap)
-    //end of Bubble sorting code+++++++++++
-
+bubbleSort();
 }//end of setup function++++++++++
+
+function bubbleSort() {
+  //Bubble sorting Code
+    loadarray(100);
+    var t1 = millis();
+         for (var i = arr.length; i>=0; i--) {
+           for(var j = 1; j<=i; j++) {
+             numBubbleCompares = numBubbleCompares + 1;
+             if(arr[j-1]>arr[j]) {
+      // Swapping Code ++++++++++++++
+                 var temp = arr[j-1];
+                 arr[j-1] = arr[j];
+                 arr[j] = temp;
+                 numBubbleSwap = numBubbleSwap + 1;
+              }
+      // Swapping Code ++++++++++++++
+           }
+         }
+         var t2 = millis()
+         // console.log('Sorted Bubble array')
+         // console.log(arr)
+         console.log('Number of Bubble Swaps');
+         console.log(numBubbleSwap);
+         console.log('Number of Bubble Compares');
+         console.log(numBubbleCompares);
+         console.log('Elapsed Time =' + (t2 - t1)/1000);
+      //end of Bubble sorting code+++++++++++
+}
 
 //insertion sort array function
 function loadarray(n) {
