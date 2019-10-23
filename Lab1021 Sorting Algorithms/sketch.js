@@ -13,34 +13,9 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
-//Insertion Sorting
-  loadarray(100);
-    var iT1 = millis();
-    var temp;
-        for (var  i = 1; i < arr.length; i++) {
-              numInsertionCompares = numInsertionCompares + 1
-              for(var  j = i ; j > 0 ; j--) {
-  //  Swapping Code
-                 if(arr[j] < arr[j-1]){
-                    temp = arr[j];
-                    arr[j] = arr[j-1];
-                    arr[j-1] = temp;
-                    numInsertionSwap = numInsertionSwap + 1
-                  }
-        //  Swapping Code
-              }
-         }
-    var iT2 = millis();
-    // console.log('Sorted Insertion array');
-    // console.log(arr);
-    console.log('Number of Insertion Swaps');
-    console.log(numInsertionSwap);
-    console.log('Number of Insertion Compares');
-    console.log(numInsertionCompares);
-    console.log('Insertion Sorting Elapsed Time' + (iT2 - iT1)/1000)
-//end of insertion sorting code++++++++++++++++
-
 bubbleSort();
+insertionSort();
+selectionSort();
 }//end of setup function++++++++++
 
 function bubbleSort() {
@@ -69,6 +44,55 @@ function bubbleSort() {
          console.log(numBubbleCompares);
          console.log('Elapsed Time =' + (t2 - t1)/1000);
       //end of Bubble sorting code+++++++++++
+}
+
+function insertionSort() {
+  //Insertion Sorting
+    loadarray(100);
+      var iT1 = millis();
+      var temp;
+          for (var  i = 1; i < arr.length; i++) {
+                numInsertionCompares = numInsertionCompares + 1
+                for(var  j = i ; j > 0 ; j--) {
+    //  Swapping Code
+                   if(arr[j] < arr[j-1]){
+                      temp = arr[j];
+                      arr[j] = arr[j-1];
+                      arr[j-1] = temp;
+                      numInsertionSwap = numInsertionSwap + 1
+                    }
+          //  Swapping Code
+                }
+           }
+      var iT2 = millis();
+      // console.log('Sorted Insertion array');
+      // console.log(arr);
+      console.log('Number of Insertion Swaps');
+      console.log(numInsertionSwap);
+      console.log('Number of Insertion Compares');
+      console.log(numInsertionCompares);
+      console.log('Insertion Sorting Elapsed Time' + (iT2 - iT1)/1000)
+  //end of insertion sorting code++++++++++++++++
+
+}
+
+function selectionSort() {
+  loadarray(100);
+  for (var i = 0; i < arr.length - 1; i++){
+   var index = i;
+   for (var j = i + 1; j < arr.length; j++){
+      if (arr[j] < arr[index]){
+         index = j;
+      }
+    }
+      //  Swapping Code+++++++++++++++++++
+      var smallerNumber = arr[index];
+      arr[index] = arr[i];
+      arr[i] = smallerNumber;
+	//  Swapping Code+++++++++++++++++++
+  }
+
+  console.log('Number of Insertion Swaps')
 }
 
 //insertion sort array function
