@@ -5,7 +5,7 @@ class Bar {
     this.loc = createVector(x, y);
     this.w = w;
     this.h = h;
-    this.clr = color(114, 138, 173)
+    this.clr = color(114, 138, 173);
   }
 
 run() {
