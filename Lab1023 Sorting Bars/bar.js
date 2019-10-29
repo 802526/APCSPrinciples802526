@@ -14,7 +14,7 @@ run() {
 }
 
 render() {
-  // fill(this.clr);
+  fill(this.clr)
   rect(this.x, this.y, this.w, this.h);
 }
 

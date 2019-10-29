@@ -8,13 +8,13 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   loadBars(20);
-  // Todo: Call initList()
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   // Run one iteration of sorting algorithm
   // Call drawList on the result.
+  drawList(bars);
 }
 
 
@@ -22,9 +22,9 @@ function draw() {
 // (within the range of 10, 800)
 // n = list size
 // Return new list with n random values
-function initList(n) {
-
-}
+// function initList(n) {
+//
+// }
 
 // Function that draws a parameter list of numbers
 // as a set of bars on the screen.
@@ -32,7 +32,9 @@ function initList(n) {
 // listBars = array of bar heights (numbers)
 // Draw listBars.length bars on the canvas, with heights listBars
 function drawList(listBars) {
-
+  for (var i = 0; i < listBars.length; i++) {
+    listBars[i].run();
+  }
 }
 
 // When sorting, on each iteration, call drawList(list)
@@ -42,9 +44,5 @@ function loadBars(n) {
   fill(122, 37, 219);
   for (var i = 0; i<n; i++){
     bars[i] = new Bar(i*width/n, 800, width/n, random(10, 800));
-  }
-
-  for (var i = 0; i < bars.length; i++) {
-    bars[i].run()
   }
 }
