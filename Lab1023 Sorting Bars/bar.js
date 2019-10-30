@@ -9,13 +9,16 @@ class Bar {
     this.clr = color(114, 138, 173);
   }
 
-run() {
-  this.render();
-}
+  run() {
+    this.render();
+  }
 
-render() {
-  fill(this.clr)
-  rect(this.x, this.y, this.w, this.h);
-}
+  render() {
+    fill(114, 138, 173)
+    rect(this.x, this.y, this.w, this.h);
+  }
+  set(i) {
+    this.x = i*width/n
+  }
 
 }//end of Bar class++++++++++++
