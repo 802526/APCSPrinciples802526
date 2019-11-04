@@ -1,5 +1,5 @@
-//  Your Name
-// 	Date or version number
+//  Sky Gastinel
+// 4 November 2019
 //  This is a comment
 //  The setup function function is called once when your program begins
 snake = []
@@ -23,6 +23,6 @@ function draw() {
 
 function loadSnakes(n) {
   for(var i = 0; i<n; i++) {
-    snake[i] = new Snake (400, 400, 20, 20);
+    snake[i] = new Snake (20, 20, 20, 20, 5);
   }
 }

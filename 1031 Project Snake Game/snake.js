@@ -1,9 +1,13 @@
 class Snake {
-  constructor(x, y, w, h) {
-    this.loc = createVector(x, y);
+  constructor(x, y, w, h, size) {
+    this.segments = []
     this.w = w;
     this.h = h;
+    this.size = size;
     this.clr = color(58, 133, 82);
+    for(var i=0; i<size; i++) {
+      this.segment[i] = createVector(x+i, y);
+    }
   }
 
 run() {
@@ -18,7 +22,9 @@ update() {
 
 render() {
   fill(this.clr);
-  rect(this.loc.x, this.loc.y, this.w, this.h);
+  for(var i = 0; i<segments.length; i++){
+      rect(20*this.loc.x, 20*this.loc.y, this.w, this.h);
+  }
 }
 
 keyReleased() {
@@ -41,7 +47,7 @@ checkEdges() {
      this.loc.x< 0 ||
      this.loc.y> 800 ||
      this.loc.y< 0) {
-       gameState = 3
+
      }
 }
 }
