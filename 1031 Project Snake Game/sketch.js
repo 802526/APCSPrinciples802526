@@ -15,7 +15,7 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw() {
-  background(188, 235, 190);
+  background(190, 235, 190);
   for(var i = 0; i<1; i++) {
     snake[i].run();
   }
