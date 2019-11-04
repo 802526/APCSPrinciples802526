@@ -2,7 +2,7 @@
 // 4 November 2019
 //  This is a comment
 //  The setup function function is called once when your program begins
-snake = []
+var snake
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -16,13 +16,9 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
   background(190, 235, 190);
-  for(var i = 0; i<1; i++) {
-    snake[i].run();
-  }
+    snake.run();
 }
 
 function loadSnakes(n) {
-  for(var i = 0; i<n; i++) {
-    snake[i] = new Snake (20, 20, 20, 20, 5);
-  }
+    snake = new Snake (20, 20, 20, 20, 5);
 }
