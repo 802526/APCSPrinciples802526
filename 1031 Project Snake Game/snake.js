@@ -23,7 +23,7 @@ class Snake {
   render() {
     fill(this.clr);
     for(var i = 0; i<this.segments.length; i++){
-        rect(20*this.segments[i], 20*this.segments[i], this.w, this.h);
+        rect(20*this.segments[i].x, 20*this.segments[i].y, this.w, this.h);
     }
   }
 
