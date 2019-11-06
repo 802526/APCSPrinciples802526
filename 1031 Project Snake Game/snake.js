@@ -1,6 +1,7 @@
 class Snake {
   constructor(x, y, w, h, size) {
     this.segments = []
+    this.vel = createVector(0,0);
     this.w = w;
     this.h = h;
     this.size = size;
@@ -17,6 +18,7 @@ class Snake {
 
   update() {
     this.keyReleased();
+
     //this.checkEdges();
   }
 
@@ -29,7 +31,7 @@ class Snake {
 
   keyReleased() {
     if(keyCode === UP_ARROW) {
-      this.loc.y = this.loc.y - this.h
+      this.vel = createVector(0,-1);
     }
     if(keyCode === DOWN_ARROW) {
       this.loc.y = this.loc.y + this.h
