@@ -34,13 +34,13 @@ class Snake {
       this.vel = createVector(0,-1);
     }
     if(keyCode === DOWN_ARROW) {
-      this.loc.y = this.loc.y + this.h
+      this.vel = createVector(0,1);
     }
     if(keyCode === LEFT_ARROW) {
-      this.loc.x = this.loc.x - this.w
+      this.vel = createVector(-1,0);
     }
     if(keyCode === RIGHT_ARROW) {
-      this.loc.x = this.loc.x + this.w
+        this.vel = createVector(1, 0);
     }
   }
 
