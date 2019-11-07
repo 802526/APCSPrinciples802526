@@ -18,7 +18,6 @@ class Snake {
 
   update() {
     this.keyReleased();
-
     //this.checkEdges();
   }
 
