@@ -17,8 +17,12 @@ class Snake {
   }
 
   update() {
-    this.keyReleased();
-    //this.checkEdges();
+  for(var i = this.segments.length -1; i>0; i--) {
+    this.segments[i].x = this.segments[i-1].x;
+    this.segments[i].y = this.segments[i-1].y;
+  }
+   this.segments[0].add(this.vel)
+
   }
 
   render() {
@@ -28,20 +32,6 @@ class Snake {
     }
   }
 
-  keyReleased() {
-    if(keyCode === UP_ARROW) {
-      this.vel = createVector(0,-1);
-    }
-    if(keyCode === DOWN_ARROW) {
-      this.vel = createVector(0,1);
-    }
-    if(keyCode === LEFT_ARROW) {
-      this.vel = createVector(-1,0);
-    }
-    if(keyCode === RIGHT_ARROW) {
-        this.vel = createVector(1, 0);
-    }
-  }
 
   checkEdges() {
     if(this.loc.x > 800 ||
