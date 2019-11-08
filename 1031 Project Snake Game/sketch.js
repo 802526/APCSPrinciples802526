@@ -10,7 +10,7 @@ function setup() {
   fill(114, 100, 100);
   frameRate(10);
   loadSnakes(1);
-  loadFood(10);
+//  loadFood(10);
   //loadFood(j);
 }
 
