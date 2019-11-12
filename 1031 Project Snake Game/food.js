@@ -11,9 +11,11 @@ class Food {
   }
 
   update(){
-    if() {
-      this.loc.x = random(0, 39)
-      this.loc.y = random(0, 39)
+    if(snake.segments[0].x === this.loc.x &&
+    snake.segments[0].y === this.loc.y) {
+      this.loc.x = Math.floor(random(0, 39));
+      this.loc.y = Math.floor(random(0, 39));
+      snake.segments.push(createVector(0, 0))
     }
   }
 

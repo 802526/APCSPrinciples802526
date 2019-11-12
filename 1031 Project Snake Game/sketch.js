@@ -11,7 +11,7 @@ function setup() {
   fill(114, 100, 100);
   frameRate(10);
   loadSnakes(1);
-  loadFood(10);
+  loadFood();
 }
 
 //  The draw function is called @ 30 fps
@@ -23,13 +23,11 @@ function draw() {
 
 
 function loadSnakes(n) {
-    snake = new Snake (20, 20, 20, 20, 25);
+    snake = new Snake (20, 20, 20, 20, 1);
 }
 
 function  loadFood(n) {
-  for(var i = 0; i<n; i++) {
-    food = new Food (random(0, 39), random(0, 39), 20, 20)
-  }
+    food = new Food (Math.floor(random(0, 39)), Math.floor(random(0, 39)), 20, 20)
 }
 
 function keyPressed() {
