@@ -11,9 +11,9 @@ class Food {
   }
 
   update(){
-    if(this.loc.x = snake.segments[i].x) {
-      this.loc.x = this.loc.x + random(0, 40)
-      this.loc.y = this.loc.y + random(0, 40)
+    if() {
+      this.loc.x = random(0, 39)
+      this.loc.y = random(0, 39)
     }
   }
 
