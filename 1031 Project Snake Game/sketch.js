@@ -68,11 +68,12 @@ function playGame() {
   snake.run();
   food.run();
 }
-//
-// endGame() {
-//
-// }
 
+endGame() {
+
+}
+
+//loading snakes and food
 function loadSnakes(n) {
     snake = new Snake (20, 20, 20, 20, 1);
 }
@@ -81,6 +82,7 @@ function  loadFood(n) {
     food = new Food (Math.floor(random(0, 39)), Math.floor(random(0, 39)), 20, 20)
 }
 
+//moves the snake code
 function keyPressed() {
   if(keyCode === UP_ARROW) {
     snake.vel = createVector(0,-1);
