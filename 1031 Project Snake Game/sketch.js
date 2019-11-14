@@ -29,27 +29,28 @@ function draw() {
 }
 
 function startGame() {
-  fill(90, 125, 242);
+  fill(196, 155, 114);
 rect(50, 50, 700, 700);
-//blue box
-fill(237, 135, 255);
+//box
+fill(188, 235, 190);
 textSize(50);
 textAlign(CENTER);
 textStyle(BOLD);
 text('~Snake Game~', 400, 300);
 //Paddle Game title
+fill(237, 102, 92);
 rect(200, 500, 400, 100);
-//pink box for buttons
-fill(90, 125, 242);
+//box for buttons
+fill(188, 235, 190);
 textSize(50);
 textAlign(CENTER);
 textStyle(BOLD);
 text('click to play', 400, 570);
 //"play"
-fill(44, 66, 138);
-textSize(15);
+fill(237, 102, 92);
+textSize(20);
 textStyle(BOLD);
-text('by: Sky Gastinel', 115, 745);
+text('by: Sky Gastinel', 130, 745);
 //by: Sky Gastinel
 mouseClicked();
 }
