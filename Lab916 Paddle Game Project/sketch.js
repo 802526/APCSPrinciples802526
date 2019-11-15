@@ -53,10 +53,10 @@ function startGame() {
 }
 
 function mouseClicked() {
-for(var i = 0; i<buttons.length; i++) {
+  for(var i = 0; i<buttons.length; i++) {
   buttons[i].mouseClicked();
-}
   }
+}
 
 function playGame() {
   runPaddle();

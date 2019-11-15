@@ -5,7 +5,6 @@
 var snake;
 var food;
 var gamestate = 1;
-var button;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -52,7 +51,7 @@ textSize(20);
 textStyle(BOLD);
 text('by: Sky Gastinel', 130, 745);
 //by: Sky Gastinel
-mouseClicked();
+var playButton = new Button()
 }
 
 function mouseClicked() {
@@ -64,13 +63,19 @@ function mouseClicked() {
   }
 }
 
+function mouseClicked() {
+  for(var i = 0; i<buttons.length; i++) {
+  buttons[i].mouseClicked();
+  }
+}
+
 function playGame() {
   snake.run();
   food.run();
 }
 
-endGame() {
-}
+// endGame() {
+// }
 
 //loading snakes and food
 function loadSnakes(n) {
