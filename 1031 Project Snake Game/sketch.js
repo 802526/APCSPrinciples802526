@@ -70,7 +70,6 @@ function playGame() {
 }
 
 endGame() {
-
 }
 
 //loading snakes and food
