@@ -13,6 +13,7 @@ function setup() {
   frameRate(10);
   loadSnakes(1);
   loadFood();
+  gameStateButtons();
 }
 
 //  The draw function is called @ 30 fps
@@ -51,17 +52,8 @@ textSize(20);
 textStyle(BOLD);
 text('by: Sky Gastinel', 130, 745);
 //by: Sky Gastinel
-var playButton = new Button()
 }
 
-function mouseClicked() {
-  if(mouseX >200 &&
-  mouseX<600 &&
-  mouseY> 500 &&
-  mouseY< 600) {
-    gameState = 2;
-  }
-}
 
 function mouseClicked() {
   for(var i = 0; i<buttons.length; i++) {
@@ -85,6 +77,15 @@ function loadSnakes(n) {
 function  loadFood(n) {
     food = new Food (Math.floor(random(0, 39)), Math.floor(random(0, 39)), 20, 20)
 }
+
+function gameStateButtons() {
+    buttons = [];
+  var playButtoncallback = function() {
+    gameState = 2;
+  }
+  var playButton = new Button(200, 500, 400, 100, 'click to play', color(188, 235, 190), playButtoncallback);
+    buttons.push(playButton);
+  }
 
 //moves the snake code
 function keyPressed() {
