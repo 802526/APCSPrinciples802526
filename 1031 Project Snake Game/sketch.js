@@ -1,5 +1,5 @@
 //  Sky Gastinel
-// 4 November 2019
+// 19 November 2019
 //  This is a comment
 //  The setup function function is called once when your program begins
 var snake;
@@ -11,9 +11,9 @@ function setup() {
   background(188, 235, 190);
   fill(114, 100, 100);
   frameRate(10);
-  loadSnakes(1);
-  loadFood();
-  gameStateButtons();
+  // loadSnakes(1);
+  // loadFood();
+  // gameStateButtons();
 }
 
 //  The draw function is called @ 30 fps
@@ -54,16 +54,25 @@ text('by: Sky Gastinel', 130, 745);
 //by: Sky Gastinel
 }
 
-
 function mouseClicked() {
-  for(var i = 0; i<buttons.length; i++) {
-  buttons[i].mouseClicked();
-  }
+  loadFood();
+  loadSnakes(1);
+  gameState = 2
 }
 
+// function mouseClicked() {
+//   for(var i = 0; i<buttons.length; i++) {
+//   buttons[i].mouseClicked();
+//   }
+// }
+
 function playGame() {
-  snake.run();
-  food.run();
+  if(mouseX >0 &&
+  mmouseX< 800 &&
+  mouseY>  0&&
+  mouseY< 800) {
+    playSetup();
+  }
 }
 
 // endGame() {
@@ -78,14 +87,21 @@ function  loadFood(n) {
     food = new Food (Math.floor(random(0, 39)), Math.floor(random(0, 39)), 20, 20)
 }
 
-function gameStateButtons() {
-    buttons = [];
-  var playButtoncallback = function() {
-    gameState = 2;
-  }
-  var playButton = new Button(200, 500, 400, 100, 'click to play', color(188, 235, 190), playButtoncallback);
-    buttons.push(playButton);
-  }
+// function gameStateButtons() {
+//     buttons = [];
+//   var playButtoncallback = function() {
+//     gameState = 2;
+//     playSetup();
+//   }
+//   var playButton = new Button(200, 500, 400, 100, 'click to play', color(188, 235, 190), playButtoncallback);
+//     buttons.push(playButton);
+//   }
+
+function playSetup() {
+  loadSnakes(1);
+  loadFood();
+gameState = 2;
+}
 
 //moves the snake code
 function keyPressed() {
