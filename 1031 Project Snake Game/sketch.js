@@ -11,8 +11,8 @@ function setup() {
   background(188, 235, 190);
   fill(114, 100, 100);
   frameRate(10);
-  // loadSnakes(1);
-  // loadFood();
+  loadSnakes(1);
+  loadFood();
   // gameStateButtons();
 }
 
@@ -67,12 +67,8 @@ function mouseClicked() {
 // }
 
 function playGame() {
-  if(mouseX >0 &&
-  mmouseX< 800 &&
-  mouseY>  0&&
-  mouseY< 800) {
-    playSetup();
-  }
+snakes.run();
+food.run();
 }
 
 // endGame() {
@@ -96,12 +92,12 @@ function  loadFood(n) {
 //   var playButton = new Button(200, 500, 400, 100, 'click to play', color(188, 235, 190), playButtoncallback);
 //     buttons.push(playButton);
 //   }
-
-function playSetup() {
-  loadSnakes(1);
-  loadFood();
-gameState = 2;
-}
+//
+// function playSetup() {
+//   loadSnakes(1);
+//   loadFood();
+// gameState = 2;
+// }
 
 //moves the snake code
 function keyPressed() {
