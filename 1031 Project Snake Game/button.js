@@ -25,7 +25,7 @@ class Button {
     fill(this.clr);
     rect(this.loc.x, this.loc.y, this.w, this.h);
     fill(0, 0, 0);
-    textSize(20);
+    textSize(30);
     textStyle(BOLD);
     textAlign(CENTER);
     text(this.msg, this.loc.x + this.w/2, this.loc.y + this.h/2 + 10);

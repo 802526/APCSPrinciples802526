@@ -13,6 +13,8 @@ class Snake {
 
   run() {
     this.update();
+    this.checkEdges();
+    this.tangled();
     this.render();
   }
 
@@ -21,24 +23,31 @@ class Snake {
     this.segments[i].x = this.segments[i-1].x;
     this.segments[i].y = this.segments[i-1].y;
   }
-   this.segments[0].add(this.vel)
+   this.segments[0].add(this.vel);
+  }
 
+  checkEdges() {
+    if(20*this.segments[0].x > 800 ||
+       20*this.segments[0].x< 0 ||
+       20*this.segments[0].y> 800 ||
+       20*this.segments[0].y< 0) {
+         gameState = 3
+    }
+  }
+
+  tangled() {
+    for(var i = 1; i<this.segments.length; i++){
+      if(this.segments[0].x === this.segments[i].x &&
+          this.segments[0].y === this.segments[i].y) {
+        gameState = 3
+      }
+    }
   }
 
   render() {
     fill(this.clr);
     for(var i = 0; i<this.segments.length; i++){
         rect(20*this.segments[i].x, 20*this.segments[i].y, this.w, this.h);
-    }
-  }
-
-
-  checkEdges() {
-    if(this.loc.x > 800 ||
-       this.loc.x< 0 ||
-       this.loc.y> 800 ||
-       this.loc.y< 0) {
-
     }
   }
 }
