@@ -88,14 +88,14 @@ function  loadFood(n) {
 function endGame() {
   button = []
   fill(194, 31, 19);
-  textSize(80);
+  textSize(100);
   textAlign(CENTER);
   textStyle(BOLD);
-  text('YOU LOSE!', 400, 200)
+  text('YOU LOSE!', 400, 330)
   var homeCallback = function() {
     gameState = 1;
   }
-  var homeButton = new Button(100, 550, 600, 50, 'Click Here To Return To Home Screen', color(55, 183, 230), homeCallback)
+  var homeButton = new Button(100, 550, 600, 50, 'click here to return to home screen', color(55, 183, 230), homeCallback)
   button.push(homeButton);
 }
 
