@@ -86,12 +86,13 @@ function  loadFood(n) {
 }
 
 function endGame() {
+  background(237, 102, 92)
   button = []
-  fill(194, 31, 19);
-  textSize(100);
+  fill(55, 183, 230);
+  textSize(80);
   textAlign(CENTER);
   textStyle(BOLD);
-  text('YOU LOSE!', 400, 330)
+  text('You Lose!', 400, 330)
   var homeCallback = function() {
     gameState = 1;
   }
