@@ -9,10 +9,9 @@ class Ship{
 
   run(){
     this.checkEdges();
-    // this.sizecontrol();
+    this.gravity();
     this.update();
     this.render();
-    // this.attraction();
   }
 
   checkEdges(){
@@ -30,7 +29,19 @@ class Ship{
     }
   }
 
+  gravity() {
+    var direction = createVector(mainBall.loc.x - this.loc.x, mainBall.loc.y - this.loc.y);
+    direction.normalize();
+    direction.mult(0.5);
+    this.acc = direction
+  }
+
   update(){
+    //speed limit
+    if(this.vel.mag() > 5) {
+      this.vel.normalize();
+      this.vel.mult(5)
+    }
     this.loc.add(this.vel);
     this.vel.add(this.acc);
     this.angle = this.vel.heading() - PI/2;
@@ -48,14 +59,14 @@ class Ship{
     // // Reset the CTM and remove from the matrix stack
     // pop()
     //
-push()//  Save coordinates
-   // move the origin to the center
-   // of the triangle
-translate(this.loc.x, this.loc.y);
-rotate(this.angle);
-fill(this.clr)
-triangle(-8, 0, 8, 0, 0, 15);
-pop();// restore the origin to the
+    push()//  Save coordinates
+       // move the origin to the center
+       // of the triangle
+    translate(this.loc.x, this.loc.y);
+    rotate(this.angle);
+    fill(this.clr)
+    triangle(-8, 0, 8, 0, 0, 15);
+    pop();// restore the origin to the
          // upper left
   }
 

@@ -33,12 +33,9 @@ class Ball {
       this.vel.y=-this.vel.y;
     }
     for(var i = 0; i<ships.length; i++){
-      if(ships[i].loc.x < this.loc.x +30 &&
-        ships[i].loc.x > this.loc.x -30
-        // ships[i].loc.y < this.loc.y +50 &&
-        // ships[i].loc.y > this.loc.y -50
-      ){
-          console.log('within parameters')
+      var distance = this.loc.dist(ships[i].loc)
+      if(distance <= 60)
+      {
           this.loc.x = random(width)
           this.loc.y = random(height)
         }
@@ -64,22 +61,5 @@ class Ball {
     ellipse(this.loc.x, this.loc.y, this.sizeX, this.sizeY);
   }
 
-  attraction(){
-    var distToMainBall;
-    distToMainBall = this.loc.dist(mainBall.loc);
-    if(distToMainBall < 200){
-      this.acc = p5.Vector.sub(this.loc, mainBall.loc);
-      this.acc.normalize();
-      this.acc.mult(0.3);
-    }
-    else if(distToMainBall < 150){
-      this.acc = p5.Vector.sub( mainBall.loc, this.loc);
-      this.acc.normalize();
-      this.acc.mult(0.5);
-    }
-    else{
-      this.acc = createVector(0,0);
-    }
-  }
 
 }//end ball class
