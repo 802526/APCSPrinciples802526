@@ -20,6 +20,6 @@ function draw() {
 
 function loadBalls(n) {
   for(var i = 0; i < n; i++) {
-    balls[i] = new Ball (40*i + 20, 400, color(12.5*i, random(0, 255), random(0, 255)));
+    balls[i] = new Ball (40*i + 20, 400, color(12.75*i, random(0, 100), random(0, 100)));
   }
 }
