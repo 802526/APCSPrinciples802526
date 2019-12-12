@@ -5,12 +5,17 @@
 
 var ships = []
 var attractor, repeller, mainBall;
+var ballSize, colorSlider;
 
 function setup() {
   // put setup code here
   var cnv = createCanvas(800,800);
   cnv.position((windowWidth-width)/2,30);
   background(0,0,0);//black background color
+  ballSize = createSlider(5, 100, 40);
+  ballSize.position(200, 400)
+  colorSlider = createSlider(0, 255, 100);
+  colorSlider.position(200, 450)
   loadShips(1);
 }
 
@@ -23,8 +28,10 @@ function draw() {
 }
 
 function loadShips(n) {
+  console.log("bs = " + ballSize);
+  //var val = test.value();
   fill(84, 46, 255)
-  mainBall = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), 40, 40);
+  mainBall = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), ballSize.value(), ballSize.value());
   // attractor = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), 80, 80);
   // repeller = new Ball(width/2, height/2, random(-2, 2), random(-2, 2), 80, 80);
   for(var i = 0; i<n; i++){

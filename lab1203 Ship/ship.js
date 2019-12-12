@@ -3,7 +3,7 @@ class Ship{
     this.loc = createVector(x1,y1);
     this.vel = createVector(dx, dy);
     this.acc = createVector(0,0);
-    this.clr = color(random(100, 200), random(100, 200), random(100, 255));
+    this.clr = color(112, 31, 219);
     this.angle = angle
   }
 

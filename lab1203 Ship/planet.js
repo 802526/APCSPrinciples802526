@@ -6,7 +6,7 @@ class Ball {
     this.loc = createVector(x, y);
     this.vel = createVector(dx, dy);
     this.acc = createVector(0,0);
-    this.clr = color(random(100, 200), random(100, 200), random(100, 255));
+    this.clr = color(163, 15, 82);
     this.sizeX = sizeX;
     this.sizeY = sizeY;
 
