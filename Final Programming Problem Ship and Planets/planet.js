@@ -64,4 +64,4 @@ class Ball {
   }
 
 
-}//end ball class
+}//end ball/planet class
