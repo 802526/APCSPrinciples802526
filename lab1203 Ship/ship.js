@@ -38,9 +38,9 @@ class Ship{
 
   update(){
     //speed limit
-    if(this.vel.mag() > 5) {
+    if(this.vel.mag() > maxSpeedSlider.value()) {
       this.vel.normalize();
-      this.vel.mult(5)
+      this.vel.mult(maxSpeedSlider.value())
     }
     this.loc.add(this.vel);
     this.vel.add(this.acc);
